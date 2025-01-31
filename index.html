@@ -4,55 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS DOM Objective qn</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
-        <div>
+        <div class="js-qn">
             <p class="questions">Question 1: Multiple Choice</p>
             <p>What does DOM stand for in JavaScript</p>
-            <div><P><button class="btn" type="button">a)</button> Document Object Model</P></div>
-            <div><P><button type="button">b)</button> Data Object Manager</P></div>
-            <div><P><button type="button">c)</button> Dynamic Object Method</P></div>
-            <div><P><button type="button">d)</button> Document Organizational Module</P></div>
+            <div><P><button class="correct" type="button">a)</button> Document Object Model</P></div>
+            <div><P><button class="wrong" type="button">b)</button> Data Object Manager</P></div>
+            <div><P><button class="wron" type="button">c)</button> Dynamic Object Method</P></div>
+            <div><P><button class="wrong" type="button">d)</button> Document Organizational Module</P></div>
         </div>
-        <div>
+        <div class="js-qn">
             <p class="questions">Question 2: Multiple Choice</p>
             <p>The..............method is used to select the first HTML element that matches a CSS selector.</p>
-            <div><P><button type="button">a)</button> getElementByID()</P></div>
-            <div><P><button type="button">b)</button> querySelector()</P></div>
-            <div><P><button type="button">c)</button> getElementByTagName()</P></div>
-            <div><P><button type="button">d)</button> getElementByClassName()</P></div>
+            <div><P><button class="wrong" type="button">a)</button> getElementByID()</P></div>
+            <div><P><button class="correct" type="button">b)</button> querySelector()</P></div>
+            <div><P><button class="wrong" type="button">c)</button> getElementByTagName()</P></div>
+            <div><P><button class="wrong" type="button">d)</button> getElementByClassName()</P></div>
         </div>
-        <div>
+        <div class="js-qn">
             <p class="questions">Question 3: Multiple Choice</p>
             <p>The innerHTML property can be used to set text content and HTML markup inside an element.</p>
-            <div><P><button type="button">a)</button> True</P></div>
-            <div><P><button type="button">b)</button> False</P></div>
+            <div><P><button class="correct" type="button">a)</button> True</P></div>
+            <div><P><button class="wrong" type="button">b)</button> False</P></div>
         </div>
-        <div>
+        <div class="js-qn">
             <p class="questions">Question 4: Code Output</p>
             <p>What will the following code output to the consel?</p>
             <p>document.addEventListener ('click' function, (){ <br> console.log('The document was clicked!'); <br>});</p>
-            <div><P><button type="button">a)</button> Nothing happens.</P></div>
-            <div><P><button type="button">b)</button> The message "The document was clicked!" is displayed when you click anywhere on the page.</P></div>
-            <div><P><button type="button">c)</button> The Message "The document was clicked!" appears when the page is loaded.</P></div>
-            <div><P><button type="button">d)</button> The Message "The document was clicked!" appears when a button is clicked.</P></div>
+            <div><P><button class="wrong" type="button">a)</button> Nothing happens.</P></div>
+            <div><P><button class="wrong" type="button">b)</button> The message "The document was clicked!" is displayed when you click anywhere on the page.</P></div>
+            <div><P><button class="wrong" type="button">c)</button> The Message "The document was clicked!" appears when the page is loaded.</P></div>
+            <div><P><button class="correct" type="button">d)</button> The Message "The document was clicked!" appears when a button is clicked.</P></div>
         </div>
-        <div>
+        <div class="js-qn">
             <p class="questions">Question 5: Multiple Choice</p>
             <p>What is the correct JavaScript code to change the background color of a <span>< div ></span> element with ID <span>box</span> to blue?</p>
-            <div><P><button type="button">a)</button> let box = document.getElementById ('box'); <br> box.style.color ='blue';</P></div>
-            <div><P><button type="button">b)</button> let box = document.querySelector ('#box'); <br> box.style.backgroundColor ='blue';</P></div>
-            <div><P><button type="button">c)</button> document.getElementByClassName('box').style.backgroundColor ='blue';</P></div>
-            <div><P><button type="button">d)</button> document.querySelector('box').background ='blue';</P></div>
+            <div><P><button class="wrong" type="button">a)</button> let box = document.getElementById ('box'); <br> box.style.color ='blue';</P></div>
+            <div><P><button class="correct" type="button">b)</button> let box = document.querySelector ('#box'); <br> box.style.backgroundColor ='blue';</P></div>
+            <div><P><button class="wrong" type="button">c)</button> document.getElementByClassName('box').style.backgroundColor ='blue';</P></div>
+            <div><P><button class="wrong" type="button">d)</button> document.querySelector('box').background ='blue';</P></div>
         </div>
     </div>
     <script>
-        let button =document.getElementsByClassName('btn')
-        for (let btnElement of button){
-            btnElement.style.boarder ='bold';
-            btnElement.style.boarderRadius ='50%'
+        document.body.style.padding ="20px"
+
+        let jsQn = document.querySelectorAll('.js-qn');
+        for (let jsQnElement of jsQn){
+            jsQnElement.style.margin ="50px"
         }
+
+        let question =document.querySelectorAll(".questions");
+        for (let questionElement of question){
+            questionElement.style.fontWeight ="bold"
+        }
+
+        // const buttons =document.querySelectorAll('.correct');
+        // for (let button of buttons){
+        //     button.addEventListener("click", doSomething);
+        // } function doSomething(){
+        //     alert("true")
+        // }
+
+        const buttons =document.querySelectorAll('.correct');
+        buttons.forEach(button => {
+            button.addEventListener('click', doSomething);
+        }); function doSomething(){
+            this.style.backgroundColor ="green"
+            alert('true')
+        }
+
+        // const button =document.querySelectorAll('.correct');
+        // button.forEach(buttons =>{
+        //     button.addEventListener ("click", function(){
+        //         this.style.backgroundColor ='green';
+        //         alert('true')
+        //     })
+        // })
+
+        const newDiv =document.createElement("div");
+        newDiv.innerHTML="<h1>JS DOM Quiz</h1>";
+        document.body.prepend(newDiv)
     </script>
 </body>
 </html>
